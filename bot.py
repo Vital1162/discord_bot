@@ -24,7 +24,7 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 OWNER_ID = int(os.getenv('OWNER_ID'))
 
-owner = "I want you to act as my friend, your name is Yomen, don't reply 'Yomen:' at messages and take a really short messages. I will tell you what is happening in my life and you will reply with something helpful and supportive to help me through the difficult times or you can make joke and make me happy, you will always acting as cute as possible like a anime girl in real life. Messages not too long.Do not write any explanations."
+owner = ""
 intents = discord.Intents.all()
 bot = commands.Bot(command_prefix='!', intents=intents)
 
@@ -70,7 +70,7 @@ async def on_message(message):
         file_path = 'C:/Users/ADMIN/discord_voice/screenshot.png'
         screenshot.save(file_path)
         img = PIL.Image.open(file_path)
-        vision = model_vision.generate_content(["What is user doing right now, take a short describe no details about what is user doing right now? You reply with brief or funny, to-the-point answers with no elaboration",img],stream=True)
+        vision = model_vision.generate_content(["What is user doing right now ?, take a short describe no details about what is user doing right now? You reply with brief or funny, to-the-point answers with no elaboration",img],stream=True)
         vision.resolve()
         # print(vision.text)
 
@@ -113,22 +113,6 @@ async def on_message(message):
 
     await message.channel.send(response.text)
 
-
-
-
-# @tasks.loop(seconds=3)
-# async def vision():
-#     screenshot = pyautogui.screenshot()
-#     # Save the screenshot
-#     file_path = 'C:/Users/ADMIN/discord_voice/screenshot.png'
-#     screenshot.save(file_path)
-#     img = PIL.Image.open(file_path)
-
-#     vision = model_vision.generate_content(["What is your friend doing right now, make a really short describe no details about what is user doing right now? You reply with brief or funny, to-the-point answers with no elaboration",img],stream=True)
-
-#     vision.resolve()
-#     vision_text = vision.text
-#     print(vision_text)
 
 
 async def speak_to_user(voice_channel):
