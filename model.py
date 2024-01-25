@@ -2,7 +2,7 @@ import google.generativeai as genai
 from IPython.display import Markdown
 import PIL.Image
 import pyautogui
-genai.configure(api_key="AIzaSyAqNmllczUTlKBq7GbXCDe5NpiIR2hVETU")
+genai.configure(api_key="")
 
 generation_config = {
     "temperature": 1,
